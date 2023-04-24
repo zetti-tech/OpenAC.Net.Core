@@ -178,3 +178,7 @@ FakesAssemblies/
 *.dat
 /src/.vs
 /src/OpenAC.Net.Core/.vs
+
+# JetBrains Rider
+.idea/
+*.sln.iml
