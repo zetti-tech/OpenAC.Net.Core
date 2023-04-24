@@ -30,8 +30,9 @@
 // ***********************************************************************
 
 using System;
-using System.IO;
 using System.Drawing;
+using System.IO;
+using System.Runtime.Versioning;
 
 namespace OpenAC.Net.Core.Extensions
 {
@@ -56,6 +57,8 @@ namespace OpenAC.Net.Core.Extensions
         /// </summary>
         /// <param name="byteArrayIn">The byte array in.</param>
         /// <returns>Image.</returns>
+        
+        [SupportedOSPlatform("windows")]
         public static Image ToImage(this byte[] byteArrayIn)
         {
             if (byteArrayIn == null) return null;

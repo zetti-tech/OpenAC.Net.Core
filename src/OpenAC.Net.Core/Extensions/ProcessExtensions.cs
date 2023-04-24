@@ -32,6 +32,8 @@
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Management;
+using System.Runtime.Versioning;
 
 #if NETFULL
 
@@ -51,6 +53,8 @@ namespace OpenAC.Net.Core.Extensions
         /// </summary>
         /// <param name="process">The process.</param>
         /// <returns>System.String.</returns>
+        
+        [SupportedOSPlatform("windows")]
         public static string GetOwner(this Process process)
         {
             var query = "Select * From Win32_Process Where ProcessID = " + process.Id;
