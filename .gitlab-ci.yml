@@ -33,7 +33,7 @@ build:
       variables:
         DOTNET_CONFIGURATION: "Release-beta"
         RELEASE_VERSION: "-p:Version=1.0.0-beta"
-    - if: ($CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+$/ || $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "staging" || $CI_PIPELINE_SOURCE == 'merge_request_event')
+    - if: ($CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+$/ || $CI_COMMIT_BRANCH == "z_main" || $CI_COMMIT_BRANCH == "staging" || $CI_PIPELINE_SOURCE == 'merge_request_event')
   script:
     - echo Publishing in $DOTNET_CONFIGURATION
     - "dotnet publish -c $DOTNET_CONFIGURATION $RELEASE_VERSION -o ./publish ./src/OpenAC.Net.Core.csproj "
@@ -46,7 +46,7 @@ publish:
   script:
     - dotnet nuget push "bin/Release*/*.nupkg" --timeout 600 --source gitlab
   only:
-    - main
+    - z_main
     - staging
 
 
